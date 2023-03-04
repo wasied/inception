@@ -42,7 +42,6 @@ services:
       - .env
     depends_on:
       - mariadb
-      - nginx
 
   mariadb:
     build: ./requirements/mariadb

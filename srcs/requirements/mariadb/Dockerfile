@@ -10,8 +10,6 @@ RUN sed -i 's/^bind-address\s.*$/bind-address = 0.0.0.0/' /etc/mysql/mariadb.con
 
 # Import our custom files
 RUN mkdir -p /tmp/
-COPY ./tools/wordpress.sql /tmp/wordpress.sql
-
 COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
 RUN chmod +x /tmp/entrypoint.sh
 

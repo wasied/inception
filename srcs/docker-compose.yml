@@ -11,6 +11,8 @@ services:
       - inception-network
     volumes:
       - wordpress-data:/var/www/html
+    env_file:
+      - .env
     depends_on:
       - wordpress
 
@@ -36,6 +38,11 @@ services:
       - WP_USER=${WP_USER}
       - WP_EMAIL=${WP_EMAIL}
       - WP_PASSWORD=${WP_PASSWORD}
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+      - nginx
 
   mariadb:
     build: ./requirements/mariadb
@@ -52,6 +59,8 @@ services:
       - MYSQL_WP_USER=${MYSQL_WP_USER}
       - MYSQL_WP_DATABASE=${MYSQL_WP_DATABASE}
       - MYSQL_WP_PASSWORD=${MYSQL_WP_PASSWORD}
+    env_file:
+      - .env
 
 volumes:
   wordpress-data:

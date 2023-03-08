@@ -27,4 +27,9 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
 fi
 
+sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$WORDPRESS_DB_NAME/g" /var/www/html/wp-config.php
+sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$WORDPRESS_DB_USER/g" /var/www/html/wp-config.php
+sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$WORDPRESS_DB_HOST/g" /var/www/html/wp-config.php
+sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$WORDPRESS_DB_PASSWORD/g" /var/www/html/wp-config.php
+
 exec "$@"

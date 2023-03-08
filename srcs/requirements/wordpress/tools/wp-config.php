@@ -4,16 +4,16 @@
  */
 
 /** Nom de la base de données de WordPress */
-define('DB_NAME', getenv('WORDPRESS_DB_NAME'));
+define('DB_NAME', 'XXX_WORDPRESS_DB_NAME_XXX');
 
 /** Nom d'utilisateur de la base de données MySQL */
-define('DB_USER', getenv('WORDPRESS_DB_USER'));
+define('DB_USER', 'XXX_WORDPRESS_DB_USER_XXX');
 
 /** Mot de passe de la base de données MySQL */
-define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
+define('DB_PASSWORD', 'XXX_WORDPRESS_DB_PASS_XXX');
 
 /** Nom d'hôte de la base de données MySQL */
-define('DB_HOST', getenv('WORDPRESS_DB_HOST'));
+define('DB_HOST', 'XXX_WORDPRESS_DB_HOST_XXX');
 
 /** Préfixe de table de la base de données WordPress */
 $table_prefix = 'wp_';

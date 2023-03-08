@@ -27,7 +27,7 @@ services:
     volumes:
       - wordpress-data:/var/www/html
     environment:
-      - WORDPRESS_DB_HOST=mariadb:3306
+      - WORDPRESS_DB_HOST=mariadb
       - WORDPRESS_DB_NAME=${MYSQL_WP_DATABASE}
       - WORDPRESS_DB_USER=${MYSQL_WP_USER}
       - WORDPRESS_DB_PASSWORD=${MYSQL_WP_PASSWORD}

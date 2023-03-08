@@ -12,5 +12,4 @@ RUN chmod +x /var/www/wordpress-init.sh
 EXPOSE 9000
 
 ENTRYPOINT ["/var/www/wordpress-init.sh"]
-
 CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]

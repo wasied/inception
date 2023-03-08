@@ -12,11 +12,16 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
 	mkdir -p /var/www/html
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
-	chmod +x wp-cli.phar; 
+	chmod +x wp-cli.phar;
 	mv wp-cli.phar /usr/local/bin/wp;
 	cd /var/www/html;
 	wp core download --allow-root;
 	mv /var/www/wp-config.php /var/www/html/
+
+	sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$WORDPRESS_DB_NAME/g" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$WORDPRESS_DB_USER/g" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$WORDPRESS_DB_HOST/g" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$WORDPRESS_DB_PASSWORD/g" /var/www/html/wp-config.php
 
 	echo "Creating wordpress users..."
 
@@ -26,10 +31,5 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	echo "Wordpress is set up"
 
 fi
-
-sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$WORDPRESS_DB_NAME/g" /var/www/html/wp-config.php
-sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$WORDPRESS_DB_USER/g" /var/www/html/wp-config.php
-sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$WORDPRESS_DB_HOST/g" /var/www/html/wp-config.php
-sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$WORDPRESS_DB_PASSWORD/g" /var/www/html/wp-config.php
 
 exec "$@"

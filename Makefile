@@ -15,8 +15,10 @@ load:
 re:	prune load
 
 clean:
-	docker stop $(docker ps -qa); docker rm $(docker ps -qa); \
-	docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); \
-	docker network rm $(docker network ls -q) 2>/dev/null
+	docker stop $(shell docker ps -qa) || true
+	docker rm $(shell docker ps -qa) || true
+	docker rmi -f $(shell docker images -qa) || true
+	docker volume rm $(shell docker volume ls -q) || true
+	docker network rm $(shell docker network ls -q) || true
 
 PHONY: all load down prune clean re
